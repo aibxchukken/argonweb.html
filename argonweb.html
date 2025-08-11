@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creators Argon - Professional Graphic Designers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+
+        main {
+            margin-top: 80px;
+            padding: 2rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            color: white;
+            padding: 4rem 0;
+            background: rgba(0,0,0,0.1);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 0 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .section {
+            background: white;
+            margin: 2rem 0;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            color: #333;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2:after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            display: block;
+            margin: 10px auto;
+        }
+
+        /* Professional Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:nth-child(2n) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .service-card:nth-child(3n) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .service-price {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        /* Instagram Posts Section */
+        .instagram-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .instagram-section h2 {
+            color: white;
+        }
+
+        .instagram-section h2:after {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+        }
+
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .instagram-post {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .instagram-post:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: #f8f9fa;
+        }
+
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .post-user {
+            flex: 1;
+        }
+
+        .post-user h4 {
+            color: #333;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .post-user span {
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        .post-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .post-content {
+            padding: 1rem;
+            color: #333;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .post-stats {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-caption {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .hashtags {
+            color: #667eea;
+            margin-top: 0.5rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            margin: 0 auto 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .creator-info {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .creator-info::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        .creator-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .creator-info p {
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .instagram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            border: 2px solid #ffd700;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .instagram-link:hover {
+            background: #ffd700;
+            color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-content p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: scale(1.2) rotate(360deg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .post-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .location-marker {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+            border-radius: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .portfolio-grid,
+            .instagram-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Argon Creators</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#instagram">Instagram</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="home" class="hero">
+            <h1>Professional Graphic Designer</h1>
+            <p>Transforming ideas into stunning visual experiences that captivate and convert</p>
+            <a href="#services" class="cta-button">View Services</a>
+            <a href="#portfolio" class="cta-button">See Portfolio</a>
+        </section>
+
+        <section class="stats-section">
+            <h2 style="color: white; margin-bottom: 1rem;">Professional Achievements</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">90+</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12/7</span>
+                    <span class="stat-label">Support Available</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <h2>Professional Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">📱</span>
+                    <h3>Social Media Design</h3>
+                    <p>Eye-catching social media graphics, posts, and stories that boost engagement and followers.</p>
+                    <div class="service-price">Starting ₹999</div>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">🎬</span>
+                    <h3>Video Editing</h3>
+                    <p>Professional video editing for YouTube, Instagram reels, promotional videos, and commercials.</p>
+                    <div class="service-price">Starting ₹1,999</div>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">📄</span>
+                    <h3>Print Design</h3>
+                    <p>Business cards, brochures, flyers, and marketing materials that make your brand stand out.</p>
+                    <div class="service-price">Starting ₹499</div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; padding: 2rem; border-radius: 15px; margin-top: 3rem; text-align: center;">
+                <h3 style="margin-bottom: 1.5rem;">📞 Ready to Start Your Project?</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                    <div>
+                        <strong>📧 Email:</strong><br>
+                        <a href="mailto:creatorsargon@gmail.com" style="color: #ffd700; text-decoration: none;">creatorsargon@gmail.com</a>
+                    </div>
+                    <div>
+                        <strong>📱 WhatsApp:</strong><br>
+                        <a href="https://wa.me/919567268453" style="color: #ffd700; text-decoration: none;">+91 9567268453</a>
+                    </div>
+                    <div>
+                        <strong>📍 Location:</strong><br>
+                        Kerala, Malappuram
+                    </div>
+                </div>
+                <p style="opacity: 0.9;">Available 12/7 for consultations • Quick response guaranteed</p>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="creator-info">
+                <h3>🚀 Created by Aqib</h3>
+                <p>Hello! I'm Aqib, a passionate graphic designer and programmer with expertise in brand identity, web design, and full-stack development. I blend creativity with technical skill to craft stunning visuals and powerful digital solutions that resonate, connect, and perform—tailored to your unique vision with professionalism and precision.</p>
+                <a href="https://instagram.com/_a._ib._x._" target="_blank" class="instagram-link">
+                    📷 Follow @_a._ib._x._
+                </a>
+            </div>
+        </section>
+
+        <section id="instagram" class="section instagram-section">
+            <h2>Latest Instagram Posts</h2>
+            <p style="text-align: center; opacity: 0.9; margin-bottom: 2rem;">Follow my journey and see my latest creative works on Instagram</p>
+            <div class="instagram-grid">
+                <div class="instagram-post" onclick="openInstagramPost('https://www.instagram.com/p/DLP2k2zzC3d/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==')">
+    <div class="post-header">
+        <div class="profile-pic">CA</div>
+        <div class="post-user">
+            <h4>creators_argon</h4>
+            <span>Kerala, India</span>
+        </div>
+    </div>
+    <div class="post-image">
+        <img src="https://www.instagram.com/p/DLP2k2zzC3d/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" alt="Video Editing Details Click Now" style="width:100%;border-radius:8px;">
+    </div>
+    <div class="post-content">
+        <div class="post-actions">
+            <button class="action-btn">❤️</button>
+            <button class="action-btn">💬</button>
+            <button class="action-btn">📤</button>
+        </div>
+        <div class="post-stats">likes</div>
+        <div class="post-caption">
+            <strong>creators_argon</strong> 
+            <div class="hashtags">#logodesign #branding #graphicdesign #startup #kerala</div>
+        </div>
+    </div>
+</div>
+
+<div class="instagram-post" onclick="openInstagramPost('https://www.instagram.com/p/DKzgsYtINW_/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==')">
+    <div class="post-header">
+        <div class="profile-pic">CA</div>
+        <div class="post-user">
+            <h4>creators_argon</h4>
+            <span>Malappuram, Kerala</span>
+        </div>
+    </div>
+    <div class="post-image">
+        <img src="https://www.instagram.com/p/DKzgsYtINW_/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==" alt="Graphic Design Details Click Now" style="width:100%;border-radius:8px;">
+    </div>
+    <div class="post-content">
+        <div class="post-actions">
+            <button class="action-btn">❤️</button>
+            <button class="action-btn">💬</button>
+            <button class="action-btn">📤</button>
+        </div>
+        <div class="post-stats">likes</div>
+        <div class="post-caption">
+            <strong>creators_argon</strong> 
+            <div class="hashtags">#videoediting #promotional #business #creativity #malappuram</div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openInstagramPost(url) {
+    window.open(url, '_blank');
+}
+</script>
+
+
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://www.instagram.com/creators_argon?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="cta-button">
+                    📷 Follow on Instagram
+                </a>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section">
+            <h2>Portfolio Details</h2>
+            <div class="portfolio-grid" id="portfolioGrid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background: linear-gradient(45deg, #ff9a9e, #fecfef); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">Graphic Design</div>
+                    <div class="portfolio-content">
+                        <h3>Graphic Design Services</h3>
+                        <p>Graphic design is the art and practice of creating visual content to communicate ideas, information, or messages. At its core, it blends creativity with strategic thinking, using elements such as typography, color, imagery, layout, and composition to make content visually appealing and effective. The primary purpose of graphic design is to capture attention, convey meaning quickly, and influence the viewer's perception. Whether for branding, marketing, editorial design, or digital media, graphic design plays a crucial role in shaping how we experience and interact with visual information in our daily lives.</p>
+                    </div>
+                </div>
+
+             <div class="portfolio-grid" id="portfolioGrid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background: linear-gradient(45deg, #ff9a9e, #fecfef); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">Video Editing</div>
+                    <div class="portfolio-content">
+                        <h3>Video Editing Services</h3>
+                        <p>Video editing is the process of manipulating and rearranging video footage to create a new work. It involves selecting shots, adding transitions, and incorporating sound and visual effects to enhance the storytelling and overall impact of the video. Video editing is essential in various fields, including film production, advertising, and social media content creation, as it helps to convey messages effectively and engage audiences.</p>
+                    </div>
+                </div>
+            
